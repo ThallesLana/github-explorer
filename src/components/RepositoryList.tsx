@@ -5,15 +5,22 @@ import '../styles/repositories.scss';
 
 // https://api.github.com/orgs/rocketseat/repos
 
+interface Repository {
+    name: string;
+    description: string;
+    html_url: string;
+}
+
 
 export function RepositoryList() {
 
-    const [repositories, setRepositories] = useState([]);
+    const [repositories, setRepositories] = useState<Repository[]>([]);
 
     // useEffect serve para disparar uma função após uma alteração
     // 1° parametro o que eu quero executar, quando eu quero executar
     // 2° parametro caso retornado [] ele só roda uma vez
     // cuidado para não esquecer do segundo parametro
+
     useEffect(() => {
         fetch('https://api.github.com/orgs/rocketseat/repos').then(response => response.json()).then(data => setRepositories(data));
     }, []);
