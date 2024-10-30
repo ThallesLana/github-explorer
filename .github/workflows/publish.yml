@@ -27,3 +27,4 @@ jobs:
           FOLDER: build
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           MESSAGE: "Build: ({sha}) {msg}"
+          FORCE_JAVASCRIPT_ACTIONS_TO_NODE20: true
